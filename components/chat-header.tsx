@@ -56,8 +56,8 @@ function PureChatHeader({
       >
         {/* biome-ignore lint/performance/noImgElement: "Logo image requires native img tag" */}
         <img
-          alt="SportTraid Logo"
-          className="h-8 w-auto"
+          alt="Triad Logo"
+          className="h-6 w-auto"
           src="/images/sporttriad.png"
         />
       </Link>
