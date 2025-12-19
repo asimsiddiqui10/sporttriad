@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { memo } from "react";
 import { useWindowSize } from "usehooks-ts";
@@ -52,15 +51,14 @@ function PureChatHeader({
       )}
 
       <Link
-        className="order-3 hidden md:ml-auto md:flex"
+        className="order-3 hidden items-center md:ml-auto md:flex"
         href="/"
       >
-        <Image
+        {/* biome-ignore lint/performance/noImgElement: "Logo image requires native img tag" */}
+        <img
           alt="SportTraid Logo"
           className="h-8 w-auto"
-          height={32}
           src="/images/sporttriad.png"
-          width={120}
         />
       </Link>
     </header>
