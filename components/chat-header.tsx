@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { memo } from "react";
 import { useWindowSize } from "usehooks-ts";
@@ -49,6 +50,19 @@ function PureChatHeader({
           selectedVisibilityType={selectedVisibilityType}
         />
       )}
+
+      <Link
+        className="order-3 hidden md:ml-auto md:flex"
+        href="/"
+      >
+        <Image
+          alt="SportTraid Logo"
+          className="h-8 w-auto"
+          height={32}
+          src="/images/sporttriad.png"
+          width={120}
+        />
+      </Link>
     </header>
   );
 }
