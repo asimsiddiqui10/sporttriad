@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Color Tokens ===== */
+:root {
+  --background: #0E100F;
+  --foreground: #F8F7F2;
+  --muted: rgba(248, 247, 242, 0.5);
+  --muted-foreground: rgba(248, 247, 242, 0.6);
+  --border: rgba(248, 247, 242, 0.15);
+  --border-hover: rgba(248, 247, 242, 0.4);
+  color-scheme: dark;
+}
+
+/* Single theme: dark only. No light/dark mode switch. */
+
+/* ===== Reset ===== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Body ===== */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Typography ===== */
+h1 {
+  font-family: var(--font-syne), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h2, .badge-text {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-syne), sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+p, span, li, input, button, a {
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* ===== Buttons ===== */
+.stroke-button {
+  position: relative;
+  display: inline-block;
+  border-radius: 9999px;
+  border: 1.5px solid var(--foreground);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  background: transparent;
+}
+
+.stroke-button:hover {
+  background: var(--foreground);
+}
+
+.stroke-button-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  color: var(--foreground);
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: var(--font-ibm-plex-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stroke-button:hover .stroke-button-inner {
+  color: var(--background);
+}
+
+/* ===== Cards ===== */
+.stroke-card {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: transparent;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+.stroke-card:hover {
+  border-color: var(--border-hover);
+}
+
+/* ===== Badge ===== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: clamp(0.65rem, 1.1vw, 0.75rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: fit-content;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stroke-card:hover .badge {
+  border-color: var(--border-hover);
+  color: var(--foreground);
+}
+
+/* ===== Layout ===== */
+main {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+  height: 0;
+}
+
+section:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+section:last-of-type,
+section:last-of-type > *,
+section:last-of-type > * > * {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+img[alt="Triad Sports"] {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  vertical-align: bottom;
+  line-height: 0;
+}
+
+/* ===== Feature Grid ===== */
+@media (min-width: 768px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
+}
+
+@media (min-width: 1024px) {
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+/* Hero background: fill on mobile, 110% on desktop */
+.hero-bg {
+  background-size: 110%;
+}
+@media (max-width: 767px) {
+  .hero-bg {
+    background-size: cover;
+  }
+}
